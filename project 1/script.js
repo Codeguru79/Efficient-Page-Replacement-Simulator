@@ -22,9 +22,7 @@ document.getElementById("stepForwardBtn").addEventListener("click", stepForward)
 document.getElementById("stepBackBtn").addEventListener("click", stepBack);
 document.getElementById("resetBtn").addEventListener("click", resetAll);
 
-/* ============================
-   PREPARE SIMULATION
-============================ */
+
 function prepareSimulation() {
     pause();
     tableBody.innerHTML = "";
@@ -132,11 +130,6 @@ function prepareSimulation() {
         Hits: ${hits} | Faults: ${faults}
     `;
 }
-
-/* ==============================
-        PLAYBACK CONTROLS
-============================== */
-
 function startPlay() {
     pause();
     playTimer = setInterval(() => {
@@ -174,9 +167,6 @@ function resetAll() {
     currentStatus.innerText = "-";
 }
 
-/* ==============================
-        RENDER ROW
-============================== */
 function renderRow(i) {
     let ev = events[i];
 
@@ -201,9 +191,6 @@ function renderRow(i) {
     updateStatus();
 }
 
-/* ============================
-      UPDATE STATUS
-============================ */
 function updateStatus() {
     if (currentIndex < 0) {
         currentStep.innerText = "-";
@@ -217,3 +204,4 @@ function updateStatus() {
     currentPage.innerText = ev.page;
     currentStatus.innerText = ev.hit ? "Hit" : "Miss";
 }
+
