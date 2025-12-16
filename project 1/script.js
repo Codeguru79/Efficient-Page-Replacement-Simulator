@@ -129,6 +129,8 @@ function prepareSimulation() {
         Total Pages: ${pages.length}<br>
         Hits: ${hits} | Faults: ${faults}
     `;
+    updateAlgorithmExplanation(algo);
+
 }
 function startPlay() {
     pause();
@@ -204,4 +206,56 @@ function updateStatus() {
     currentPage.innerText = ev.page;
     currentStatus.innerText = ev.hit ? "Hit" : "Miss";
 }
+function updateAlgorithmExplanation(algorithm) {
+    const algoName = document.getElementById("algoName");
+    const algoDescription = document.getElementById("algoDescription");
+    const algoWorking = document.getElementById("algoWorking");
+
+    if (algorithm === "fifo") {
+        algoName.innerText = "FIFO (First In First Out)";
+        algoDescription.innerHTML = `
+            <p><strong>FIFO</strong> replaces the page that entered memory first.</p>
+        `;
+        algoWorking.innerHTML = `
+            <ul>
+                <li>Pages are stored in a queue.</li>
+                <li>The oldest page is removed when frames are full.</li>
+                <li>No consideration of recent usage.</li>
+            </ul>
+            <p><strong>Result:</strong> Page fault occurs when a page is not found in frames, and the oldest page is evicted.</p>
+        `;
+    }
+
+    else if (algorithm === "lru") {
+        algoName.innerText = "LRU (Least Recently Used)";
+        algoDescription.innerHTML = `
+            <p><strong>LRU</strong> replaces the page that was least recently accessed.</p>
+        `;
+        algoWorking.innerHTML = `
+            <ul>
+                <li>Recently used pages are kept in memory.</li>
+                <li>The page not used for the longest time is removed.</li>
+                <li>Tracks usage history.</li>
+            </ul>
+            <p><strong>Result:</strong> Page fault occurs when a new page replaces the least recently used page.</p>
+        `;
+    }
+
+    else if (algorithm === "optimal") {
+        algoName.innerText = "Optimal Page Replacement";
+        algoDescription.innerHTML = `
+            <p><strong>Optimal</strong> replaces the page that will not be used for the longest time in the future.</p>
+        `;
+        algoWorking.innerHTML = `
+            <ul>
+                <li>Looks ahead in the reference string.</li>
+                <li>Chooses the page with farthest future use.</li>
+                <li>Gives minimum possible page faults.</li>
+            </ul>
+            <p><strong>Result:</strong> Page fault occurs when a page with the farthest future reference is replaced.</p>
+        `;
+    }
+}
+
+
 
