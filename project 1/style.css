@@ -37,15 +37,15 @@ body {
 }
 
 .card {
-    background: rgba(219, 249, 211, 0.2);   /* transparent white */
-    backdrop-filter: blur(12px);             /* background blur */
-    -webkit-backdrop-filter: blur(12px);     /* safari support */
+    background: rgba(219, 249, 211, 0.2);  
+    backdrop-filter: blur(12px);            
+    -webkit-backdrop-filter: blur(12px);    
     
-    border: 1px solid rgba(255, 255, 255, 0.35); /* frosted border */
+    border: 1px solid rgba(255, 255, 255, 0.35); 
     border-radius: 16px;
 
     padding: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);  /* floating effect */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);  
     animation: fadeIn 0.4s ease-in-out;
 }
 .btn {
@@ -94,14 +94,14 @@ td {
 tr.hit { background: #d4edda; color: green; }
 tr.miss { background: #f8d7da; color: red; }
 
-/* Highlight currently animated row */
+
 tr.active {
     outline: 3px solid rgba(0,0,0,0.3);
     transform: scale(1.02);
     transition: 0.2s ease;
 }
 
-/* Flash when new page enters */
+
 td.flash {
     animation: flashAnim 0.8s ease-out;
 }
@@ -121,13 +121,13 @@ td.flash {
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-/* Fade in */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Form inputs styling */
+
 textarea, input[type="text"], input[type="number"], input[type="range"], select {
     width: 100%;
     padding: 10px;
@@ -156,3 +156,49 @@ label {
     font-weight: 500;
     color: #333;
 }
+#algoExplanationCard {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+#algoExplanationCard p {
+    
+    line-height: 1.6;
+}
+
+#algoExplanationCard ul {
+    margin-left: 20px;
+}
+
+#algoExplanationCard li {
+    margin-bottom: 6px;
+}
+#controls {
+    margin-top: 20px;
+}
+#controls button {
+    flex: 1;
+}
+#controls button:hover {
+    background: #12467c;
+}
+#speedControl {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+#speedControl label {
+    flex: none;
+}
+#speedControl input[type="range"] {
+    flex: 1;
+}
+
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
